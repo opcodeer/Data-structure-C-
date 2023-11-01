@@ -4,7 +4,7 @@
 using namespace std;
 
 
-vector<int> findNGE(const vector<int>& arr) {
+vector<int> nextGreatertoright(const vector<int>& arr) {
     int n = arr.size();
     vector<int> result(n, -1); // Initialize the result vector with -1 values
 
@@ -81,9 +81,25 @@ vector<int> nextGreaterToLeft(vector<int>& arr) {
 int main()
 {
     vector<int> arr = {11, 13, 21, 3}; // Use vector instead of an array
-    vector<int> ans = findNGE(arr);
+    vector<int> ans1 = nextGreatertoright(arr);
+    cout<<"The next Greater to right elements in array are: "<<endl;
 	for (int i = 0; i < arr.size(); i++) {
-        cout << arr[i] << " -> " << ans[i] << endl;
+        cout << arr[i] << " -> " << ans1[i] << endl;
+    }
+    vector<int> ans2 = nextGreaterToLeft(arr);
+    cout<<"The next Greater to left elements in array are: "<<endl;
+	for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " -> " << ans2[i] << endl;
+    }
+    vector<int> ans3 = nextSmallerToRight(arr);
+    cout<<"The next Smaller to right elements in array are: "<<endl;
+	for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " -> " << ans3[i] << endl;
+    }
+    vector<int> ans4 = nextSmallerToLeft(arr);
+    cout<<"The next Smaller to left elements in array are: "<<endl;
+	for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << " -> " << ans4[i] << endl;
     }
     return 0;
 }

@@ -54,6 +54,7 @@ int main()
     q.push(2);
     q.push(3);
     q.push(4);
+    cout<<"The queue using linked list is: "<<endl;
     while(!q.empty()){
         cout<<q.peek()<<endl;
         q.pop();

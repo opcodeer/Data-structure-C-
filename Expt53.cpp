@@ -59,7 +59,7 @@ int main() {
     bst.insert(bst.root, 70);
     bst.insert(bst.root, 60);
     bst.insert(bst.root, 80);
-
+    cout<<"The inorder traversal of above BST is: "<<endl;
     bst.inorder(bst.root);
 
     return 0;

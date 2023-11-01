@@ -34,6 +34,7 @@ int main()
     q.push(2);
     q.push(3);
     q.push(4);
+    cout<<"The Queue using stacks is: "<<endl;
     while(!q.Empty()){
         cout<<q.pop()<<endl;
     }

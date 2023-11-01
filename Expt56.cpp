@@ -1,37 +1,60 @@
-// C++ program for finding postorder
-// traversal of BST from preorder traversal
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include<climits>
+
 using namespace std;
 
-void findPostOrderUtil(int pre[], int n, int minval,int maxval, int& preIndex){
+struct TreeNode {
+    int data;
+    TreeNode* left;
+    TreeNode* right;
 
-	if (preIndex == n)
-		return;
+    TreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+};
 
-	if (pre[preIndex] < minval || pre[preIndex] > maxval) {
-		return;
-	}
 
-	int val = pre[preIndex];
-	preIndex++;
+TreeNode* constructBST(vector<int>& postorder, int& index, int minValue, int maxValue) {
+    if (index < 0) {
+        return nullptr;
+    }
 
-	findPostOrderUtil(pre, n, minval, val, preIndex);
+    int value = postorder[index];
+    if (value < minValue || value > maxValue) {
+        return nullptr;
+    }
 
-	findPostOrderUtil(pre, n, val, maxval, preIndex);
+    TreeNode* root = new TreeNode(value);
+    index--;
 
-	cout << val << " ";
+   
+    root->right = constructBST(postorder, index, value, maxValue);
+    root->left = constructBST(postorder, index, minValue, value);
+
+    return root;
 }
 
-void findPostOrder(int pre[], int n){
-	int preIndex = 0;
 
-	findPostOrderUtil(pre, n, INT_MIN, INT_MAX, preIndex);
+void postorderToPreorder(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    
+    cout << root->data << " ";
+
+    
+    postorderToPreorder(root->left);
+    postorderToPreorder(root->right);
 }
-int main()
-{
-	int pre[] = { 40, 30, 35, 80, 100 };
 
-	int n = sizeof(pre) / sizeof(pre[0]);
-	findPostOrder(pre, n);
-	return 0;
+int main() {
+    vector<int> postorder = {4, 5, 2, 6, 7, 3, 1};
+
+    int index = postorder.size() - 1;
+    TreeNode* root = constructBST(postorder, index, INT_MIN, INT_MAX);
+
+    cout << "Preorder traversal of the tree: ";
+    postorderToPreorder(root);
+
+    return 0;
 }

@@ -25,6 +25,7 @@ int main()
 	root->left = new treenode(2);
 	root->right = new treenode(3);
 	root->left->left = new treenode(4);
+	cout<<"The preorder traversal of above binary tree is: "<<endl;
     PreorderTraversal(root);
 	return 0;
 }

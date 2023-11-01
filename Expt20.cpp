@@ -77,5 +77,6 @@ int main(){
     insertAtTail(head,4);
     insertAtTail(head,5);
     reverseLinkedListRange(head,2,4);
+	cout<<"The linked list after reversing is: "<<endl;
     display(head);
 }

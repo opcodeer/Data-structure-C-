@@ -80,8 +80,10 @@ int main()
     insertAtPosition(head,5,3);
     display(head);
     insertAtPosition(head,4,3);
+    cout<<"The linked list after insertion is: "<<endl;
     display(head);
     deleteAtPosition(head,3);
+    cout<<"The linked list after deletion is: "<<endl;
     display(head);
     return 0;
 }

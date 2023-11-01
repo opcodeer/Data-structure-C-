@@ -62,6 +62,7 @@ int main()
     insertAtTail(head,5);
     display(head);
     deletion(head,5);
+    cout<<"The linked list after deletion: "<<endl;
     display(head);
     return 0;
 }

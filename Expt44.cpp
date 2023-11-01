@@ -25,6 +25,7 @@ int main()
 	root->left = new treenode(2);
 	root->right = new treenode(3);
 	root->left->left = new treenode(4);
+	cout<<"The postorder traversal of above created binary tree: "<<endl;
     PostorderTraversal(root);
 	return 0;
 }

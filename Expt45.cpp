@@ -25,6 +25,7 @@ int main()
 	root->left = new treenode(2);
 	root->right = new treenode(3);
 	root->left->left = new treenode(4);
+	cout<<"The inorder traversal of above created binary tree is: "<<endl;
     InorderTraversal(root);
 	return 0;
 }
