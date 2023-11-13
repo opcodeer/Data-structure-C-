@@ -34,22 +34,15 @@ void deleteAthead(node* &head){
     head = head->next;
     delete todelete;
 }
-void deletion(node* &head,int val){
-    if(head==NULL){
-        return;
-    }
-    if(head->next==NULL){
-        deleteAthead(head);
-        return;
-    }
-    node* temp = head;
-    node* curr = head->next;
-    while(curr->data!=val){
+void deleteAtTail(node* &head){
+    if(head==NULL) return;
+    if(head->next==NULL) deleteAthead(head);
+    node* curr = head;
+    while(curr->next->next!=NULL){
         curr = curr->next;
-        temp = temp->next;
     }
-    node* todelete = temp->next;
-    temp->next = curr->next;
+    node* todelete = curr->next;
+    curr->next = NULL;
     delete todelete;
 }
 int main()
@@ -61,7 +54,7 @@ int main()
     insertAtTail(head,4);
     insertAtTail(head,5);
     display(head);
-    deletion(head,5);
+    deleteAtTail(head);
     cout<<"The linked list after deletion: "<<endl;
     display(head);
     return 0;
